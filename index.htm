@@ -1,0 +1,41 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html>
+<head>
+<title>俄羅斯方塊 (Ver 2.02) - 程式撰寫 by Sasaya (2009/06/11 17:45)</title>
+<script language="JavaScript" src="tetris.js"></script>
+<style>
+	* {
+	    font-family: "helvetica neue", helvetica, arial, "microsoft jhenghei", "pingfang tc", "lihei pro", "wenquanyi zen hei", sans-serif;
+	    font-size: 20px;
+	}
+</style>
+</head>
+<body onKeyDown='javascript:keyDown(event.keyCode);'>
+<div id='player1' align='center'></div>
+<script>
+	var tetris = new tetris('player1');//建立新遊戲
+	tetris.loading();//載入遊戲
+
+	function keyDown(keyCode){
+		switch(keyCode){
+			case 27://Esc
+				tetris.pause();break;
+			case 37://←
+				tetris.move('Left');break;
+			case 38://↑
+				tetris.turn('Right');break;
+			case 39://→
+				tetris.move('Right');break;
+			case 40://↓
+				tetris.move('Down');break;
+			case 88://x
+				tetris.turn('Right');break;
+			case 90://z
+				tetris.turn('Left');break;
+		}
+	}
+	document.write('<br><center>操作方式：往下和左右就是你的鍵盤方向鍵，旋轉是Z和X，暫停是Esc，重新遊戲請重整</center>');
+	document.write('<br><center>'+tetris.gameInformation+'</center>');
+</script>
+</body>
+</html>
